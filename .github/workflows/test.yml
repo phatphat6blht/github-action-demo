@@ -10,9 +10,6 @@ jobs:
     steps: 
       - name: Download source code 
         uses: actions/checkout@v4
-
-      - name: Remove ci.yml file 
-        run: rm -f -v .github/workflows/ci.yml
       
       - name: Hello user
         run: |
@@ -35,5 +32,3 @@ jobs:
 
       - name: Run Python program 
         run: uv run main.py
-
-  
