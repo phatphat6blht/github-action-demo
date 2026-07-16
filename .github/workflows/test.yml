@@ -5,11 +5,23 @@ on:
 
 jobs: 
   demo:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
 
     steps: 
       - name: Download source code 
         uses: actions/checkout@v4
+
+      - name: Remove ci.yml file 
+        run: rm -f -v .github/workflows/ci.yml
+      
+      - name: Hello user
+        run: |
+          echo "Chào bạn! Đây là hành động tự động Github Actions."
+          echo "Người kích hoạt: ${{ github.actor }}"
+          echo "Sự kiện kích hoạt: ${{ github.event_name }}"
+
+      - name: Check Ubuntu version
+        run: lsb_release -a
 
       - name: Setup uv 
         uses: astral-sh/setup-uv@v5
